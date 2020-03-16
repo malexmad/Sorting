@@ -12,7 +12,9 @@ def selection_sort( arr ):
 
         # TO-DO: swap
         if smallest_index != i:
-            arr.insert(i, arr.pop(smallest_index))
+            # swapping without pop and insert method
+            arr[i], arr[smallest_index] = arr[smallest_index], arr[i]
+            # arr.insert(i, arr.pop(smallest_index)
 
     return arr
 
@@ -29,9 +31,10 @@ def bubble_sort( arr ):
         sc = 0
         for i in range(0, len(arr)-1):
             if arr[i] > arr[i+1]:
-                arr.insert(i, arr.pop(i+1))
+                # swapping without pop and insert method
+                arr[i], arr[i+1] = arr[i+1], arr[i]
+                # arr.insert(i, arr.pop(i+1))
                 sc += 1
-
 
     return arr
 
