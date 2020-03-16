@@ -22,8 +22,23 @@ def selection_sort( arr ):
 
 # TO-DO:  implement the Bubble Sort function below
 def bubble_sort( arr ):
+    # repeat at the 0 index if there was a swap
+    # need a swap counter
+    # compare element to its neighbor
+    sc = 1
+    while sc >= 1:
+        sc = 0
+        for i in range(0, len(arr)-1):
+            j = i+1
+            if arr[i] > arr[j]:
+                temp = arr.pop(j)
+                arr.insert(i, temp)
+                sc += 1
 
     return arr
+
+# bubble_sort([1, 5, 8, 4, 2, 9, 6, 0, 3, 7])
+# 0,1,2,3,4,5,6,7,8,9
 
 
 # STRETCH: implement the Count Sort function below
