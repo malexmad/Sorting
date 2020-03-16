@@ -12,8 +12,7 @@ def selection_sort( arr ):
 
         # TO-DO: swap
         if smallest_index != i:
-            temp = arr.pop(smallest_index)
-            arr.insert(i,temp)
+            arr.insert(i, arr.pop(smallest_index))
 
     return arr
 
@@ -29,11 +28,10 @@ def bubble_sort( arr ):
     while sc >= 1:
         sc = 0
         for i in range(0, len(arr)-1):
-            j = i+1
-            if arr[i] > arr[j]:
-                temp = arr.pop(j)
-                arr.insert(i, temp)
+            if arr[i] > arr[i+1]:
+                arr.insert(i, arr.pop(i+1))
                 sc += 1
+
 
     return arr
 
@@ -43,5 +41,31 @@ def bubble_sort( arr ):
 
 # STRETCH: implement the Count Sort function below
 def count_sort( arr, maximum=-1 ):
+    # get length of arr
+    larr = len(arr)
+    # count all elements from 0 - 9 starting at 0 each
+    c_arr = [0 for x in range(10)]
 
+    for i in arr:
+        c_arr[i] += 1
+    print(c_arr)
+
+    # add neigbor(2) start from the left
+    for i in range(0, larr-1):
+        j = i+1
+        # print(j)
+        # print(c_arr[i] + c_arr[j])
+        c_arr.insert(j, c_arr[i] + c_arr[j])
+        print(c_arr[i] + c_arr[j])
+
+        # c_arr.pop(j)
+    for i in arr:
+        n_arr = [0 for x in range(larr)]
+
+
+    print(c_arr)
     return arr
+
+# count_sort([1, 5, 8, 4, 2, 9, 6, 0, 3, 7, 7])
+# 0,1,2,3,4,5,6,7,8,9
+
