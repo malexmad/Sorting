@@ -44,29 +44,32 @@ def bubble_sort( arr ):
 
 # STRETCH: implement the Count Sort function below
 def count_sort( arr, maximum=-1 ):
-    # get length of arr
-    larr = len(arr)
-    # count all elements from 0 - 9 starting at 0 each
-    c_arr = [0 for x in range(10)]
+    # getting max value in list, if list is empty returns empty list
+    if len(arr) >= 1:
+        maximum = max(arr)
+    else:
+        return []
 
+    # creates a list of zeros based on the maximum value
+    counter = [0] * (maximum + 1)
+
+    # counts each value in the list
     for i in arr:
-        c_arr[i] += 1
-    print(c_arr)
+        if i < 0:
+            return "Error, negative numbers not allowed in Count Sort"
+        else:
+            counter[i] += 1
 
-    # add neigbor(2) start from the left
-    for i in range(0, larr-1):
-        j = i+1
-        # print(j)
-        # print(c_arr[i] + c_arr[j])
-        c_arr.insert(j, c_arr[i] + c_arr[j])
-        print(c_arr[i] + c_arr[j])
+    # setting the index for original list at beginning
+    ndx = 0
+    # going thru the length of the counter list to use as index position
+    for i in range(len(counter)):
+        # go thru each value in counter if value is not zero,
+        while 0 < counter[i]:
+            arr[ndx] = i
+            ndx += 1
+            counter[i] -= 1
 
-        # c_arr.pop(j)
-    for i in arr:
-        n_arr = [0 for x in range(larr)]
-
-
-    print(c_arr)
     return arr
 
 # count_sort([1, 5, 8, 4, 2, 9, 6, 0, 3, 7, 7])
